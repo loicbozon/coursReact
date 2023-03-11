@@ -2,9 +2,8 @@ import React, { useState, useNavigate } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { setUserInfo } from "../../redux/action";
-import userReducer from "../../redux/reducer";
+//import userReducer from "../../redux/reducer";
 import store from "../../redux/store";
-
 
 //import react hookform
 
@@ -13,6 +12,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     //const navigate = useNavigate();
+    const userState = store.getState();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -30,9 +30,11 @@ function Login() {
                 password: password,
             }
             const registerUser = await axios.post('http://127.0.0.1:8000/api/login', data)
-            const res = JSON.parse(registerUser.json());
-            console.log(res);
-            
+            // const res = JSON.parse(registerUser.json());
+            console.log(registerUser.data.data);
+            store.dispatch(setUserInfo(registerUser.data.data));
+            console.log(useState.id)
+
         } catch (error) {
             console.log(error);
         }
