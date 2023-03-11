@@ -18,8 +18,9 @@ export default function App() {
   return (
     <Router>
         <Routes>
+          <Route path="/" element={<Login/>}> </Route>
           <Route path="/login" element={<Login/>}> </Route>
-          <Route path="/" element={<Accueil/>}> </Route>
+          <Route path="/accueil" element={<Accueil/>}> </Route>
           <Route path="/contact" element={<Contact/>}> </Route>
           <Route path="/portfolio" element={<Portfolio/>}> </Route>
           <Route path="/register" element={<Register/>}> </Route>
