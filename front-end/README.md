@@ -1,6 +1,6 @@
 ## Installation du projet
 
-Apres avoir fait un ### `git clone https://github.com/loicbozon/React.git`
+Apres avoir fait un ### `git clone https://github.com/loicbozon/coursReact.git`
 
 Pour le back-end, avant de lancer pour installer quelques manipulations sont nécéssaires en lançant les commandes suivantes :
 
