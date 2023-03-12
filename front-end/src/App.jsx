@@ -1,4 +1,5 @@
-import './App.css';
+import "../src/style/navbar.scss";
+import "../src/style/style.scss";
 //import Accueil from './page/accueil/accueil';
 import {
   BrowserRouter as Router,
@@ -17,14 +18,14 @@ import Register from './page/auth/register';
 export default function App() {
   return (
     <Router>
-        <Routes>
-          <Route path="/" element={<Login/>}> </Route>
-          <Route path="/login" element={<Login/>}> </Route>
-          <Route path="/accueil" element={<Accueil/>}> </Route>
-          <Route path="/contact" element={<Contact/>}> </Route>
-          <Route path="/portfolio" element={<Portfolio/>}> </Route>
-          <Route path="/register" element={<Register/>}> </Route>
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Accueil />}> </Route>
+        <Route path="/login" element={<Login />}> </Route>
+        <Route path="/accueil" element={<Accueil />}> </Route>
+        <Route path="/contact" element={<Contact />}> </Route>
+        <Route path="/portfolio" element={<Portfolio />}> </Route>
+        <Route path="/register" element={<Register />}> </Route>
+      </Routes>
     </Router>
   );
 }

@@ -4,6 +4,8 @@ import axios from "axios";
 import { setUserInfo } from "../../redux/action";
 //import userReducer from "../../redux/reducer";
 import store from "../../redux/store";
+import "../../style/style.scss";
+import "../../style/login.scss";
 
 //import react hookform
 
@@ -11,8 +13,6 @@ function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    //const navigate = useNavigate();
-    const userState = store.getState();
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -30,7 +30,6 @@ function Login() {
                 password: password,
             }
             const registerUser = await axios.post('http://127.0.0.1:8000/api/login', data)
-            // const res = JSON.parse(registerUser.json());
             console.log(registerUser.data.data);
             store.dispatch(setUserInfo(registerUser.data.data));
             console.log(useState.id)
@@ -41,17 +40,17 @@ function Login() {
     }
     return (
         <div className="auth">
-            <div>
+            <form className="connexion-form">
                 <label>Email</label>
-                <input type="email" name="Email" onChange={handleEmailChange}/>
+                <input type="email" name="Email" onChange={handleEmailChange} />
 
                 <label>Mot de passe</label>
-                <input type="password" name="Password" onChange={handlePasswordChange}/>
+                <input type="password" name="Password" onChange={handlePasswordChange} />
 
-                <button onClick={handleUserLogin}>Connexion</button>
+                <button onClick={handleUserLogin}> <Link to="/accueil" className="connexion-button"> Connexion </Link></button>
                 <label>Vous n'avez pas encore de compte ?</label>
                 <Link to="/register">Créez un compte</Link>
-            </div>
+            </form>
         </div>
     )
 }

@@ -1,6 +1,8 @@
-import React, { useState, useNavigate } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../../style/style.scss";
+
 
 function Register() {
 
@@ -40,25 +42,25 @@ function Register() {
             const registerUser = await axios.post('http://127.0.0.1:8000/api/register', data)
             const res = JSON.parse(registerUser.json());
             console.log(res);
-           // return navigate('/accueil');
+            // return navigate('/accueil');
         } catch (error) {
             console.log(error);
         }
     }
     return (
         <div className="register">
-            <form>
+            <form className="connexion-form">
                 <label>Nom et prénom</label>
-                <input type="text" name="name" onChange={handleUserNameChange}/>
+                <input type="text" name="name" onChange={handleUserNameChange} />
 
                 <label>Email</label>
                 <input type="email" name="email" onChange={handleEmailChange} />
 
                 <label>Mot de passe</label>
-                <input type="password" name="password"  onChange={handlePasswordChange}/>
+                <input type="password" name="password" onChange={handlePasswordChange} />
 
                 <label>Vérification mot de passe</label>
-                <input type="c_password" name="c_password" onChange={handlePasswordConfirmChange}/>
+                <input type="c_password" name="c_password" onChange={handlePasswordConfirmChange} />
 
                 <button onClick={handleAccountCreation}>Créer un compte</button>
 
